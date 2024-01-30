@@ -1,3 +1,11 @@
+# The third algorithm presented in this chapter is the merge sort algorithm, which was developed in
+# 1940 by John von Neumann. The defining feature of this algorithm is that its performance is
+# not dependent on whether the input data is sorted. Like MapReduce and other big data
+# algorithms, it is based on a divide and conquer strategy. In the first phase, called splitting,
+# the algorithm keeps on dividing the data into two parts recursively, until the size of the
+# data is less than the defined threshold. In the second phase, called merging, the algorithm
+# keeps on merging and processing until we get the final result.
+
 def mergeSort(my_List):
     if len(my_List) > 1:
         mid = len(my_List) // 2

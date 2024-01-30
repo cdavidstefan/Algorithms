@@ -1,3 +1,11 @@
+# In pass one, instead of selecting immediate neighbors, we use elements that are at a fixed
+# gap, eventually sorting a sublist consisting of a pair of data points. This is shown in the
+# following diagram. In pass two, it sorts sublists containing four data points (see the
+# following diagram). In subsequent passes, the number of data points per sublist keeps on
+# increasing and the number of sublists keeps on decreasing until we reach a situation where
+# there is just one sublist that consists of all the data points. At this point, we can assume that
+# the list is sorted.
+
 def shellSort(myList):
     n = len(myList)
     gap = n // 2
@@ -21,22 +29,22 @@ print(shellSort(myList))
 
 
 
-def shellSort(myList):
-    distance = len(myList) // 2
+def secondShellSort(secondList):
+    distance = len(secondList) // 2
 
     while distance > 0:
-        for i in range(distance, len(myList)):
-            temp = myList[i]
+        for i in range(distance, len(secondList)):
+            temp = secondList[i]
             j = i
 
-            while j >= distance and myList[j - distance] > temp:
-                myList[j] = myList[j - distance]
+            while j >= distance and secondList[j - distance] > temp:
+                secondList[j] = secondList[j - distance]
                 j = j-distance
 
-            myList[j] = temp
+            secondList[j] = temp
 
         distance = distance // 2
-    return myList
+    return secondList
     
-myList = [1, 5, 21, 41, 3, 9, 12]
-print(shellSort(myList))
+secondList = [1, 5, 21, 41, 3, 9, 12]
+print(secondShellSort(secondList))
