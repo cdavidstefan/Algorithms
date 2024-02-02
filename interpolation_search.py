@@ -34,14 +34,20 @@ def interpolation_search(data, arr):
     print("Total comparisons made: ")
     print(comparisons - 1)
     return index
+# Bucla infinita warning cu 32, pe 33 il gaseste.
 
 
 arr = [10, 14, 19, 26, 27, 31, 33, 35, 42, 44]
-# find location of 33
-location = interpolation_search(33, arr)
+# find location of 32
+location = interpolation_search(32, arr)
 
 # if element was found
 if (location != -1):
     print("Element found at location: ", (location + 1))
 else:
     print("Element not found.")
+
+
+
+
+
