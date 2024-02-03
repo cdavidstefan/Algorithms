@@ -28,7 +28,7 @@ myList = [1, 5, 21, 41, 3, 9, 12]
 print(shellSort(myList))
 
 
-
+# Find the mistake in the first one.
 def secondShellSort(secondList):
     distance = len(secondList) // 2
 

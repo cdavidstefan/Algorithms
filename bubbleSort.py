@@ -12,3 +12,22 @@ def bubbleSort(myList):
 myList = [2221, 33, 5, 66, 21, 45, 65, 32, 33, 56, 99, 7]
 sortedList = bubbleSort(myList.copy())
 print(sortedList)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
