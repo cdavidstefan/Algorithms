@@ -46,7 +46,7 @@ class LinkedList {
 
     printList() {
         const array = [];
-        let currentNode = this.head;
+        let currentNode = this.head
         while (currentNode !== null) {
             array.push(currentNode.value);
             currentNode = currentNode.next;
@@ -54,10 +54,6 @@ class LinkedList {
         return array;
     }
 
-    insert(value) {
-        const newNode = new Node(value);
-
-    }
 }
 
 const myLinkedList = new LinkedList(10);
@@ -65,38 +61,7 @@ const myLinkedList = new LinkedList(10);
 myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.prepend(1);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+myLinkedList.insert(2, 9000);
 
 
 
