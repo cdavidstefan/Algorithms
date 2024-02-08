@@ -1,37 +1,35 @@
 class Node:
     def __init__(self, data):
+        self.prev = None
         self.data = data
         self.next = None
 
 
 class LinkedList:
-    def __int__(self):
-        self.head = None
+    def __int__(self, data):
+        self.head = Node(data)
+        self.tail = self.head
+        self.length = 1
 
     def append(self, data):
         new_node = Node(data)
-        if not self.head:
-            self.head = new_node
-            return
-        last_node = self.head
-        while last_node.next:
-            last_node = last_node.next
-        last_node.next = last_node
+        self.tail.next = new_node
+        new_node.prev = self.tail
+        self.length +=1
+        return self
 
     def prepend(self, data):
-        return None
-
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head.prev = new_node
+        self.length += 1
+        return self
 
     def print_list(self):
         return None
 
 
 
-
-
-
-
-
-
-
-
+myLinkedList = LinkedList
+LinkedList.append()
+print(LinkedList)
