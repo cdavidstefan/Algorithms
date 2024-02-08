@@ -18,20 +18,14 @@ class LinkedList:
             last_node = last_node.next
         last_node.next = last_node
 
-    def print_list(self):
-        current_node = self.head
-        while current_node:
-            print(current_node.data, end=" -> ")
-            current_node = current_node.next
-        print("None")
+    def prepend(self, data):
+        return None
 
-# Example:
-if __name__ == " __main__ ":
-    linked_list = LinkedList()
-    linked_list.append(1)
-    linked_list.append(2)
-    linked_list.append(3)
-    linked_list.print_list()
+
+    def print_list(self):
+        return None
+
+
 
 
 
