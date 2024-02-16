@@ -19,7 +19,7 @@ def mergeSort(my_List):
                 my_List[k] = right[j]
                 j = j + 1
             k = k + 1
-        
+
         while i < len(left):
             my_List[k] = left[i]
             i = i + 1
@@ -29,7 +29,7 @@ def mergeSort(my_List):
             my_List[k] = right[j]
             j = j + 1
             k = k + 1
-    
+
     return my_List
 
 my_List = [99, 443, 1621, 24, 83, 1, 75, 25, 9, 22, 10]

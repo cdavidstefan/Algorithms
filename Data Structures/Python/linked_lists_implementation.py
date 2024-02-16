@@ -143,6 +143,8 @@ myLinkedList.remove_last_item()
 myLinkedList.remove_everything_after_specified_index(5)
 myLinkedList.remove_everything_before_specified_index(1)
 
+myLinkedList.insert(0, 5)
+
 
 myLinkedList.print_list()
 
