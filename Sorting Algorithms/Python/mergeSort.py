@@ -49,117 +49,42 @@ print(mergeSortedList)
 
 
 
+def merge_sort_2(arr):
+    if len(arr) > 1:
+        midpoint = len(arr) // 2
+        left = arr[:midpoint]
+        right = arr[midpoint:]
 
+        merge_sort_2(left)
+        merge_sort_2(right)
 
+        # merge part
 
+        i = 0
+        j = 0
+        k = 0
 
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
+                arr[k] = left[i]
+                i += 1
+            else:
+                arr[k] = right[j]
+                j += 1
+            k +=1
 
+        while i < len(left):
+            arr[k] = left[i]
+            i += 1
+            k += 1
 
+        while j < len(right):
+            arr[k] = right[j]
+            j += 1
+            k += 1
 
+    return arr
 
-
-
-
-
-
-
-
-
-
-
-# Acelasi algoritm cu implementare diferita;
-# Impartim task-urile in doua functii.
-
-
-
-# def merge_sort(arr):
-#     if len(arr) > 1:
-#         midpoint = len(arr) // 2
-#         left = arr[:midpoint]
-#         right = arr[midpoint:]
-#
-#         left = merge_sort(left)
-#         right = merge_sort(right)
-#
-#         merge(left, right)
-#
-#     return arr
-#
-#
-# def merge(left, right):
-#     i = 0
-#     j = 0
-#     k = 0
-#     sorted_array = []
-#
-#     while i < len(left) and j < len(right):
-#         if left[i] < right[j]:
-#             sorted_array[k] = left[i]
-#             i += 1
-#         else:
-#             sorted_array[k] = right[j]
-#             j += 1
-#         k += 1
-#
-#     while i < len(left):
-#         sorted_array[k] = left[i]
-#         i += 1
-#         k += 1
-#
-#     while j < len(right):
-#         sorted_array[k] = right[j]
-#         j += 1
-#         k += 1
-#
-#     return sorted_array
-#
-#
-# list1 = [99, 443, 1621, 24, 83, 75, 25, 9, 22, 10]
-# list2 = [3, 1, 9999]
-# # mergeSortedList = merge_sort(list1)
-# # print(mergeSortedList)
-#
-# sortedarr = merge(list1, list2)
-
-
-
-# def merge_sort(my_list):
-#     # Incepem sortarea doar daca lista are mai mult de un element.
-#     if len(my_list) > 1:
-#         # Stabilim punctul de mijloc, jumatatea din stanga si jumatatea din dreapta
-#         midpoint = len(my_list) // 2
-#         left = my_list[:midpoint]
-#         right = my_list[midpoint:]
-#
-#         merge_sort(left)
-#         merge_sort(right)
-#
-#         i = 0
-#         j = 0
-#         k = 0
-#
-#         while i < len(left) and j < len(right):
-#             if left[i] < right[j]:
-#                 my_list[k] = left[i]
-#                 i += 1
-#             else:
-#                 my_list[k] = right[j]
-#                 j += 1
-#             k += 1
-#
-#         while i < len(left):
-#             my_list[k] = left[i]
-#             i += 1
-#             k += 1
-#
-#         while j < len(right):
-#             my_list[k] = right[j]
-#             j += 1
-#             k += 1
-#
-#     return my_list
-#
-#
-# my_list = [99, 443, 5000, 1621, 24, 83, 1, 75, 25, 9, 22, 10, 99999, 23, 13]
-# mergeSortedList = merge_sort(my_list)
-# print(mergeSortedList)
+arr = [44, 16, 83, 7, 67, 21, 34, 45, 10]
+sorted_arr = merge_sort_2(arr)
+print(sorted_arr)
