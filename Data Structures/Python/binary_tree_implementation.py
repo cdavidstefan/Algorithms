@@ -196,7 +196,7 @@
 #       d   e    f
 
 
-# Depth First Traversal ##################################################################
+# Depth First Traversal ##########      ##########    ############    #########     #########
 
 # a -> b we move deeper in the tree before we move laterally -> d -> e -> c -> f
 # we go deep until we can't anymore, then we go across.
@@ -234,23 +234,22 @@ class Node:
         self.right = None
 
 
-# def depth_first_values_iterative(root):  # root == a in this case and a == Node('a')
-#     if root is None:
-#         return []
-#
-#     stack = [root]
-#     printed_values = []
-#
-#     while len(stack) > 0:
-#         current_element = stack.pop()
-#         printed_values.append(current_element.data)
-#
-#         if current_element.right:
-#             stack.append(current_element.right)
-#         if current_element.left:
-#             stack.append(current_element.left)
-#
-#     print('Iterative way:', printed_values)
+def depth_first_values_iterative(root):  # root == a in this case and a == Node('a')
+    if root is None:
+        return []
+
+    stack = [root]
+    list_elements = []
+
+    while len(stack) > 0:
+        current_element = stack.pop()
+        list_elements.append(current_element.data)
+        if current_element.right:
+            stack.append(current_element.right)
+        if current_element.left:
+            stack.append(current_element.left)
+
+    print(list_elements)
 
 
 a = Node('a')
@@ -266,7 +265,7 @@ b.left = d
 b.right = e
 c.right = f
 
-# depth_first_values_iterative(a)
+depth_first_values_iterative(a)
 
 
 # 2. Recursive resolving ###################################################################
@@ -289,3 +288,38 @@ def depth_first_values_recursive(root):
 
 
 print('Recursive way:', depth_first_values_recursive(a))
+
+
+# Breadth first traversal ####################################################################
+
+# instead of a Stack we use a Queue to store the nodes.
+# traversam copacul lateral, inainte sa mergem in profunzime.
+# last things in queue will be the leafs
+# Time complexity is O(n) - we need to check every node, and we don't double-check any node
+# Space at worst is O(n) - we add every node into our queue
+# O(n) if we assume that adding or removing something to the queue runs in constant time
+
+
+# Iterative solution ############ # # ##  # ## ## # ##  # # # # # ##################################
+def breadth_first_search(root):
+    # we can have the queue as a list and use specific methods
+    if root is None:
+        return []
+
+    queue = [root]
+    values = []
+
+    while len(queue) > 0:
+        current_node = queue.pop(0)
+        # we add them here because the order that we visit the nodes is the order that they leave the queue
+        # once something pops, we add its value to the list, to be printed
+        values.append(current_node.data)
+
+        if current_node.left is not None:
+            queue.append(current_node.left)
+        if current_node.right is not None:
+            queue.append(current_node.right)
+
+    print(values)
+
+breadth_first_search(a)
