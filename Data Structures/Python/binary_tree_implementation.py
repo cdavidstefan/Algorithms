@@ -1,4 +1,4 @@
-# A binary tree structure allows us to preserve the relationships between the data.
+# A binary tree is a data structure that allows us to preserve the relationships between the data.
 # Pros: Better than O(n), ordered, flexible size
 # Cons: No o(1) operations
 # Binary search tree O( log N - lookup, insert, delete )
@@ -394,13 +394,36 @@ def includes_dfs_recursive(root, value):
 
 print(f'DFS Recursive -> Found node that has value - {value_searched}:', includes_dfs_recursive(a, value_searched))
 
-# Tree Sum recursive ###########################################################################################
+# Tree Sum     ###########################################################################################
 
 
-def tree_sum(root):
+def tree_sum_recursive(root):
     if root is None:
         return 0
 
-    return root.data + tree_sum(root.left) + tree_sum(root.right)
+    return root.data + tree_sum_recursive(root.left) + tree_sum_recursive(root.right)
 
 # print(tree_sum(some_numeric_value))
+
+
+# a not so elegant way to write code (it still works!); adding the value of a node as soon as it enters the queue:
+def tree_sum_iterative(root):
+    if root is None:
+        return 0
+
+    total_sum = root.data
+    queue = [root]
+
+    while len(queue) > 0:
+        current_element = queue.pop(0)
+        # total_sum += current_element.data    <-- here we add the value of a node right after it exits the queue
+
+        if current_element.left:
+            queue.append(current_element.left)
+            total_sum += current_element.left.data  # adding the value as soon as we found a node
+
+        if current_element.right:
+            queue.append(current_element.right)
+            total_sum += current_element.right.data  # same here
+
+    print(total_sum)
