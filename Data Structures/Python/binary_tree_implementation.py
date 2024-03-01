@@ -324,7 +324,7 @@ def breadth_first_iterative(root):
     return values
 
 
-print('BFS Iterative way:', breadth_first_iterative(a),'\n')
+print('BFS Iterative way:', breadth_first_iterative(a), '\n')
 
 
 # def breadth_first_search_recursive(root):
@@ -346,7 +346,7 @@ print('BFS Iterative way:', breadth_first_iterative(a),'\n')
 # It is less efficient and can lead to excessive memory usage and stack overflow errors,
 # especially for large or deep binary trees.
 
-# Problem 1. Implement the includes method on a binary three. ####################################################
+# Problem 1. Implement the includes method on a binary three. ##################################################
 # BFS, iterative.
 
 def includes_bfs_iterative(root, value):
@@ -375,9 +375,9 @@ def includes_bfs_iterative(root, value):
     return node_found
 
 
-value_searched = 'coconut'
+value_searched = 'coco jambo'
 found_node = includes_bfs_iterative(a, value_searched)
-print(f'\nBFS Iterative -> Found node that has value {value_searched}:', found_node)
+print(f'\nBFS Iterative -> Found node that has value - {value_searched}:', found_node)
 
 
 # DFS, recursive ##############################################################################################
@@ -392,4 +392,15 @@ def includes_dfs_recursive(root, value):
     return includes_dfs_recursive(root.left, value) or includes_dfs_recursive(root.right, value)
 
 
-print(f'DFS Recursive -> Found node that has value {value_searched}:', includes_dfs_recursive(a, value_searched))
+print(f'DFS Recursive -> Found node that has value - {value_searched}:', includes_dfs_recursive(a, value_searched))
+
+# Tree Sum recursive ###########################################################################################
+
+
+def tree_sum(root):
+    if root is None:
+        return 0
+
+    return root.data + tree_sum(root.left) + tree_sum(root.right)
+
+# print(tree_sum(some_numeric_value))
