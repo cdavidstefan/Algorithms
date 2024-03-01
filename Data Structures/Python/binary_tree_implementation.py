@@ -164,7 +164,7 @@
 #    1    6   15    170
 
 
-# Look for AVL trees and Red/Black Trees
+# Look for AVL trees and Red/Black Trees #####################################################################
 
 
 # Static way representation
@@ -345,3 +345,36 @@ print('BFS Iterative way:', breadth_first_iterative(a))
 # It can be implemented using recursion by explicitly tracking the level or depth of the nodes being visited
 # It is less efficient and can lead to excessive memory usage and stack overflow errors,
 # especially for large or deep binary trees.
+
+# Problem 1. Implement the includes method on a binary three. ####################################################
+# BFS, iterative.
+
+def includes_bfs_iterative(root, value):
+    if root is None:
+        return False
+
+    stack = [root]
+    node_found = False
+
+    while len(stack) > 0:
+        current_node = stack.pop()
+        # print(current_node.data)
+        if current_node.data == value:
+            return True
+
+        if current_node.right:
+            if current_node.right.data == value:
+                node_found = True
+            stack.append(current_node.right)
+
+        if current_node.left:
+            if current_node.left.data == value:
+                node_found = True
+            stack.append(current_node.left)
+
+    return node_found
+
+
+value_searched = 'c'
+found_node = includes_bfs_iterative(a, value_searched)
+print(f'\nBFS Iterative -> Found node that has value {value_searched}:', found_node)
