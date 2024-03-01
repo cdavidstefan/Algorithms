@@ -324,7 +324,7 @@ def breadth_first_iterative(root):
     return values
 
 
-print('BFS Iterative way:', breadth_first_iterative(a))
+print('BFS Iterative way:', breadth_first_iterative(a),'\n')
 
 
 # def breadth_first_search_recursive(root):
@@ -353,28 +353,43 @@ def includes_bfs_iterative(root, value):
     if root is None:
         return False
 
-    stack = [root]
+    queue = [root]
     node_found = False
 
-    while len(stack) > 0:
-        current_node = stack.pop()
-        # print(current_node.data)
+    while len(queue) > 0:
+        current_node = queue.pop(0)
+        print(current_node.data)
         if current_node.data == value:
             return True
-
-        if current_node.right:
-            if current_node.right.data == value:
-                node_found = True
-            stack.append(current_node.right)
 
         if current_node.left:
             if current_node.left.data == value:
                 node_found = True
-            stack.append(current_node.left)
+            queue.append(current_node.left)
+
+        if current_node.right:
+            if current_node.right.data == value:
+                node_found = True
+            queue.append(current_node.right)
 
     return node_found
 
 
-value_searched = 'c'
+value_searched = 'coconut'
 found_node = includes_bfs_iterative(a, value_searched)
 print(f'\nBFS Iterative -> Found node that has value {value_searched}:', found_node)
+
+
+# DFS, recursive ##############################################################################################
+
+def includes_dfs_recursive(root, value):
+    if root is None:
+        return False
+
+    if root.data == value:
+        return True
+
+    return includes_dfs_recursive(root.left, value) or includes_dfs_recursive(root.right, value)
+
+
+print(f'DFS Recursive -> Found node that has value {value_searched}:', includes_dfs_recursive(a, value_searched))
