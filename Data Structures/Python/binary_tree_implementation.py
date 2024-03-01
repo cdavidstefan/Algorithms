@@ -249,7 +249,7 @@ def depth_first_values_iterative(root):  # root == a in this case and a == Node(
         if current_element.left:
             stack.append(current_element.left)
 
-    print(list_elements)
+    print('DFS Iterative way:', list_elements)
 
 
 a = Node('a')
@@ -287,7 +287,7 @@ def depth_first_values_recursive(root):
     return node_values
 
 
-print('Recursive way:', depth_first_values_recursive(a))
+print('DFS Recursive way:', depth_first_values_recursive(a))
 
 
 # Breadth first traversal ####################################################################
@@ -301,7 +301,8 @@ print('Recursive way:', depth_first_values_recursive(a))
 
 
 # Iterative solution ############ # # ##  # ## ## # ##  # # # # # ##################################
-def breadth_first_search(root):
+# Update: this is the only go to solution when implementing a binary tree bfs traversal
+def breadth_first_iterative(root):
     # we can have the queue as a list and use specific methods
     if root is None:
         return []
@@ -320,6 +321,27 @@ def breadth_first_search(root):
         if current_node.right is not None:
             queue.append(current_node.right)
 
-    print(values)
+    return values
 
-breadth_first_search(a)
+
+print('BFS Iterative way:', breadth_first_iterative(a))
+
+
+# def breadth_first_search_recursive(root):
+#     if root is None:
+#         return []
+#
+#     left_values = breadth_first_search_recursive(root.left)
+#     right_values = breadth_first_search_recursive(root.right)
+#
+#     node_values = [root.data, *left_values, *right_values]
+#     return node_values
+#
+# print('BFS Recursive way:', breadth_first_search_recursive(a))
+
+# BFS traversal shouldn't be implemented recursively.
+# You need a queue in order to traverse a tree "breadth first", and recursion under the hood uses a stack.
+# that stack and queue is going to fight against you.
+# It can be implemented using recursion by explicitly tracking the level or depth of the nodes being visited
+# It is less efficient and can lead to excessive memory usage and stack overflow errors,
+# especially for large or deep binary trees.
