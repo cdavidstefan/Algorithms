@@ -460,9 +460,10 @@ def tree_min_value_bfs(root):
 
     while len(queue) > 0:
         current_element = queue.pop(0)
-        # Python's list implementation (JavaScript as well) uses a dinamically resized c array under the hood.
+        # Python's list implementation (JavaScript as well) uses a dynamically resized c array under the hood.
         # removing elements usually requires to move elements following after, up, to prevent gaps
         # with that said , queue.pop(0) singular runs in O(n)
+        # tehnic vorbind, solutia asta are O(n^2)
         if current_element.data < smallest:
             smallest = current_element.data
 
@@ -472,3 +473,15 @@ def tree_min_value_bfs(root):
             queue.append(current_element.right)
 
     return smallest
+
+# DFS Recursive way
+
+
+def tree_min_value_dfs_rec(root):
+    if root is None:
+        return float('inf')
+
+    left_min = tree_min_value_dfs_rec(root.left)
+    right_min = tree_min_value_dfs_rec(root.right)
+
+    return min(root.data, left_min, right_min)
