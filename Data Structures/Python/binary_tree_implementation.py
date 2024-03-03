@@ -485,3 +485,19 @@ def tree_min_value_dfs_rec(root):
     right_min = tree_min_value_dfs_rec(root.right)
 
     return min(root.data, left_min, right_min)
+
+
+# Max Path Sum #######################################################################################
+
+def max_path_sum(root):
+    if root is None:
+        return float('-inf')
+    if root.left is None and root.right is None:
+        return root.data
+
+    left_sum = max_path_sum(root.left)
+    right_sum = max_path_sum(root.right)
+
+    max_child = max(left_sum, right_sum)
+
+    return root.data + max_child
