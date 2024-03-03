@@ -427,3 +427,28 @@ def tree_sum_iterative(root):
             total_sum += current_element.right.data  # same here
 
     print(total_sum)
+
+# Min Value of the tree ##############################################################################
+# DFS approach
+
+def tree_min_value_dfs(root):
+    smallest = float('inf')
+    stack = [root]
+
+    while len(stack) > 0:
+        current_element = stack.pop()
+        if current_element.data < smallest:
+            smallest = current_element.data
+
+        if current_element.left:
+            stack.append(current_element.left)
+        if current_element.right:
+            stack.append(current_element.right)
+
+    return smallest
+
+
+# min_value = tree_min_value(a)
+# print('Minimum value inside the tree:', min_value)
+# returneaza eroare la linia 440 pentru ca incerc sa compar o litera (valoarea oricarui nod) cu float.
+
