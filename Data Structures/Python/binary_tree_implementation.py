@@ -452,3 +452,23 @@ def tree_min_value_dfs(root):
 # print('Minimum value inside the tree:', min_value)
 # returneaza eroare la linia 440 pentru ca incerc sa compar o litera (valoarea oricarui nod) cu float.
 
+# BFS approach ############################################################################################
+
+def tree_min_value_bfs(root):
+    smallest = float('inf')
+    queue = [root]
+
+    while len(queue) > 0:
+        current_element = queue.pop(0)
+        # Python's list implementation (JavaScript as well) uses a dinamically resized c array under the hood.
+        # removing elements usually requires to move elements following after, up, to prevent gaps
+        # with that said , queue.pop(0) singular runs in O(n)
+        if current_element.data < smallest:
+            smallest = current_element.data
+
+        if current_element.left:
+            queue.append(current_element.left)
+        if current_element.right:
+            queue.append(current_element.right)
+
+    return smallest
