@@ -428,6 +428,7 @@ def tree_sum_iterative(root):
 
     print(total_sum)
 
+
 # Min Value of the tree ##############################################################################
 # DFS approach
 
