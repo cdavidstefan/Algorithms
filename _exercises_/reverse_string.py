@@ -27,9 +27,15 @@ def reverse_pythonic_way(string):
         print("Specified input cannot be reversed by this function!")
     return string[::-1]
 
+def reverse_join(string):
+    if not string or len(string) < 2 or type(string) is not str:
+        print("Specified input cannot be reversed by this function!")
+    return ''.join(reversed(string))
+
 
 stringus = "Astăzi este 8 martie!"
 print(list(stringus))
 print(reverse_string_1(stringus))
 print(reverse_string_2(stringus))
 print(reverse_pythonic_way(stringus))
+print(reverse_join(stringus))
