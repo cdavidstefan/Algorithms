@@ -22,7 +22,14 @@ def reverse_string_2(string):
     return reverse_string
 
 
+def reverse_pythonic_way(string):
+    if not string or len(string) < 2 or type(string) is not str:
+        print("Specified input cannot be reversed by this function!")
+    return string[::-1]
+
+
 stringus = "Astăzi este 8 martie!"
 print(list(stringus))
 print(reverse_string_1(stringus))
 print(reverse_string_2(stringus))
+print(reverse_pythonic_way(stringus))
