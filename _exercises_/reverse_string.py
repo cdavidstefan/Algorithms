@@ -13,6 +13,16 @@ def reverse_string_1(string):
     return new_string
 
 
+def reverse_string_2(string):
+    if not string or len(string) < 2 or type(string) is not str:
+        print("Specified input cannot be reversed by this function!")
+    chars = list(string)
+    chars.reverse()
+    reverse_string = ''.join(chars)
+    return reverse_string
+
+
 stringus = "Astăzi este 8 martie!"
 print(list(stringus))
 print(reverse_string_1(stringus))
+print(reverse_string_2(stringus))
