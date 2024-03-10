@@ -31,17 +31,22 @@ class Array:
         return item
 
     def remove_everything_after_specified_index(self, index):
-        count = 0
+        count = 1
         for i in range(index, self.length - 1):
             del self.data[i]
             count += 1
-        self.length = self.length - (self.length - count)
-        print(self.length)
+        del self.data[self.length - 1]
+        self.length = self.length - count
 
     def remove_everything_before_specified_index(self, index):
-        pass
+        count = 1
+        for i in range(index, 0, -1):
+            del self.data[i]
+            count += 1
+        self.length = self.length - count
+        del self.data[0]
 
-    def slice_list(self, start_index, end_index, pace):
+    def slice_list(self, start_index, end_index):
         pass
 
     def shift_items(self, index):
@@ -52,13 +57,19 @@ class Array:
 
 
 my_array = Array()
-my_array.append('Ana')
-my_array.append('are')
-my_array.append('mere')
-my_array.append('pere')
-my_array.append('banane')
-my_array.append('!')
-my_array.remove_everything_after_specified_index(2)
-# broken
+my_array.append('1')
+my_array.append('2')
+my_array.append('3')
+my_array.append('4')
+my_array.append('5')
+my_array.append('6')
+my_array.append('7')
+my_array.append('8')
+my_array.append('9')
+my_array.append('10')
+
+my_array.remove_everything_after_specified_index(6)
+my_array.remove_everything_before_specified_index(2)
+# fixed
 print('Length: ', my_array.length)
 print('Data: ', my_array.data)
