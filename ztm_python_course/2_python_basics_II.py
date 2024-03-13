@@ -42,3 +42,49 @@
 # for key, value in dictionary:
 #     print(key, value)
 
+# ----------------------
+
+# enumerate() - returneaza si indexul elemetelor din iterabil.
+# foarte util daca avem nevoie si de indexul elementelor prin care trecem.
+
+# using a for or a while really depends on the problem we are trying to solve.
+# fixed number of steps in for
+
+# while True:
+#     response = input("Say something: ")
+#     if response == 'bye':
+#         break
+
+# pass - placeholder. in cazul in care scriem cod, lucram la un program si vrem sa implementam o functie
+# dar vrem sa implementam altceva inainte putem sa umplem linia de cod din interiorul functiei cu pass
+# pentru ca interpretorul sa nu ne returneze o eroare, sa treaca peste linia respectiva de cod.
+# when the interpretor hits "continue" does nothing and goes to the top of the enclosing loop.
+
+picture = [
+    [0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 1, 1, 1, 0, 0],
+    [0, 1, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1],
+    [0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0],
+]
+
+print(len(picture[1]))
+
+# end="" makes the print function not go to a new line by default after every print.
+
+for row in picture:
+    for pixel in row:
+        if pixel:
+            print('*', end='')
+            print('*', end='')
+        else:
+            print(' ', end='')
+            print(' ', end='')
+    print('')
+
+# best practices:
+#   clean
+#   readability
+#   predictability
+#   DRY - reusable code
