@@ -1,31 +1,31 @@
 def merge_sorted_arrays(arr1, arr2):
     sorted_array = []
-    array_1_item = arr1[0]
-    array_2_item = arr2[0]
-    i = 1
-    j = 1
+    i = 0
+    j = 0
 
     if len(arr1) == 0:
         return arr2
     if len(arr2) == 0:
         return arr1
 
-    while array_1_item or array_2_item:
-        print(array_1_item, array_2_item)
-        if array_1_item <= array_2_item:
-            sorted_array.append(array_1_item)
-            array_1_item = arr1[i]
+    while i < len(arr1) and j < len(arr2):
+        print(arr1[i], arr2[j])
+        if arr1[i] < arr2[j]:
+            sorted_array.append(arr1[i])
             i += 1
         else:
-            sorted_array.append(array_2_item)
-            array_2_item = arr2[j]
+            sorted_array.append(arr2[j])
             j += 1
+
+    # Daca mai sunt elemente ramase in oricare din cele 2 array-uri:
+    sorted_array.extend(arr1[i:])
+    sorted_array.extend(arr2[j:])
 
     return sorted_array
 
 
-array_1 = [0, 3, 4, 31]
-array_2 = [4, 6, 30]
+array_1 = [0, 3, 4, 31, 445]
+array_2 = [4, 6, 30, 229]
 
 print(merge_sorted_arrays(array_1, array_2))
 # function should output : [0, 3, 4, 4, 6, 30, 31]

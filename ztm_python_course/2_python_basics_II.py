@@ -88,3 +88,8 @@ for row in picture:
 #   readability
 #   predictability
 #   DRY - reusable code
+
+
+# ------------------------------------------------------------------------
+
+# positional arguments, keyword arguments, default parameters
