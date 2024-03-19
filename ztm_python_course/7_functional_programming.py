@@ -23,3 +23,12 @@ def only_even(item):
 
 print(list(filter(only_even, my_list)))
 
+# zip --------------------------------------------------
+# zips item into a tuple, by index
+
+your_list = [12, 13, 14, 15]
+their_list = [16, 17, 17, 18]
+
+print(list(zip(my_list, your_list, their_list)))
+
+# reduce ------------------------------------------------
