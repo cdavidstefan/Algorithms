@@ -2,7 +2,11 @@
 # "Ana are mere!" -> "!erem era anA"
 
 def reverse_string_1(string):
-    # check if the input string is valid for reversal
+    """
+    Info: This function reverses a string.
+    Info2: This is a very useful feature.
+    """
+
     if not string or len(string) < 2 or type(string) is not str:
         print("Something's not right!")
     list_elements = list(string)
@@ -27,6 +31,7 @@ def reverse_pythonic_way(string):
         print("Specified input cannot be reversed by this function!")
     return string[::-1]
 
+
 def reverse_join(string):
     if not string or len(string) < 2 or type(string) is not str:
         print("Specified input cannot be reversed by this function!")
@@ -39,3 +44,5 @@ print(reverse_string_1(stringus))
 print(reverse_string_2(stringus))
 print(reverse_pythonic_way(stringus))
 print(reverse_join(stringus))
+# help(reverse_string_1)
+print(reverse_string_1.__doc__)

@@ -93,3 +93,33 @@ for row in picture:
 # ------------------------------------------------------------------------
 
 # positional arguments, keyword arguments, default parameters
+
+# walrus operator :=
+# a way to minimize the number of calculations that are similar
+
+a = 'helloooooooooooooooooo'
+
+if (n := len(a)) > 10:
+    print(f"too long {n} elements")
+
+while (n := len(a)) > 1:
+    print(n)
+    a = a[:-1]
+
+print(a)
+
+
+# scope - what variables do i have acces to?
+# Scope rules:
+# 1. Start with the local
+# 2. Parent local? - so forth and so on
+# 3. Global?
+# 4. Built-in python functions - the final thing it checks.
+
+
+# global keyword ; nonlocal keyword
+# nonlocal x
+# suprascrie valoarea unei variabile nonlocale, cu acelasi nume
+# in cazul nostru, x
+
+# parameters are local variables.

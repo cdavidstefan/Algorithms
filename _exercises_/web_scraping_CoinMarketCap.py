@@ -17,7 +17,7 @@ for obj in main:
         for table_trs in table_id.find_all('tr'):
             if table_trs.find_all('th'):
                 for header_data in table_trs.find_all('th'):
-                        header_list.append(header_data.get_text())
+                    header_list.append(header_data.get_text())
             else:
                 list_with_td = []
                 for body_data in table_trs.find_all('td'):
