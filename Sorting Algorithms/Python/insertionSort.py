@@ -40,18 +40,22 @@ def insertion_sort(arr):
         arr[j + 1] = current_element
     return arr
 
+
 arr = [5, 22232, 2, 43, 21, 676, 99, 91, 554,34534, 0,34, 4]
 sorted_arr = insertion_sort(arr)
 print(sorted_arr)
 
+def insertion_sort_2(arr):
+    n = len(arr)
+    for i in range(1, n):
+        current_element = arr[i]
+        j = i - 1
+        while arr[j] > current_element and j > 0:
+            arr[j], arr[j + 1] = arr[j + 1], arr[j]
+            j -= 1
+        arr[j + 1] = current_element
+    return arr
 
 
-
-
-
-
-
-
-
-
-
+sorted_arr_2 = insertion_sort_2(arr)
+print(sorted_arr_2)

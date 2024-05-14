@@ -84,20 +84,20 @@
 
 # --------------------------------------------------------------------------------------------
 # decorator pattern in programming. flexibility
-def my_decorator(func):
-    def wrapper_func(*args, **kwargs):
-        print("oh")
-        func(*args, *kwargs)  # unpack all the arguments
-        print("my friend!")
-    return wrapper_func
-
-
-@my_decorator
-def hello(greeting, emoji=":)"):
-    print(greeting, emoji)
-
-
-hello("hiiiiiii")
+# def my_decorator(func):
+#     def wrapper_func(*args, **kwargs):
+#         print("oh")
+#         func(*args, *kwargs)  # unpack all the arguments
+#         print("my friend!")
+#     return wrapper_func
+#
+#
+# @my_decorator
+# def hello(greeting, emoji=":)"):
+#     print(greeting, emoji)
+#
+#
+# hello("hiiiiiii")
 
 # a = my_decorator(hello)
 # a('hiiii', ':)')
@@ -107,38 +107,67 @@ hello("hiiiiiii")
 
 # @classmethod
 # @staticmethod
-from time import time
+# from time import time
+#
+#
+# def performance(func):
+#     def wrapper_func(*args, **kwargs):
+#         t1 = time()
+#         result = func(*args, **kwargs)
+#         t2 = time()
+#         delta_t = t2 - t1
+#         print(f"Function {func.__name__} took {delta_t} s to run.")
+#         return result
+#     return wrapper_func
+#
+#
+# @performance
+# def long_time():
+#     for i in range(10000000):
+#         i * 5
+#
+#
+# @performance
+# def bubble_sort(arr):
+#     n = len(arr)
+#     for i in range(0, n):
+#         for j in range(0, n-i-1):
+#             if arr[j] > arr[j +1]:
+#                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
+#     return arr
+#
+#
+# array = list(range(1000, 0, -1))
+# sorted_arr = bubble_sort(array)
+# print(sorted_arr)
+#
+# long_time()
 
 
-def performance(func):
-    def wrapper_func(*args, **kwargs):
-        t1 = time()
-        result = func(*args, **kwargs)
-        t2 = time()
-        delta_t = t2 - t1
-        print(f"Function {func.__name__} took {delta_t} s to run.")
-        return result
-    return wrapper_func
+# --------------- Exercise: ----------------------------------------------------------------
+
+# Create an @authenticated decorator that only allows the function to run if user1 has 'valid' set to True:
+
+user1 = {
+    'name': 'Sorna',
+    'valid': True  # changing this will either run or not run the message_friends function.
+}
 
 
-@performance
-def long_time():
-    for i in range(10000000):
-        i * 5
+def authenticated(fn):
+    def wrapper_function(user):
+        if user.get('valid'):
+            fn(user)
+        else:
+            print("User is not authenticated.")
+    return wrapper_function
+
+    # code here
 
 
-@performance
-def bubble_sort(arr):
-    n = len(arr)
-    for i in range(0, n):
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j +1]:
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-    return arr
+@authenticated
+def message_friend(user):
+    print('message has been sent')
 
 
-array = list(range(1000, 0, -1))
-sorted_arr = bubble_sort(array)
-print(sorted_arr)
-
-long_time()
+message_friend(user1)
